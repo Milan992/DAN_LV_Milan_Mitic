@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfPizza"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Pan pizza" Height="450" Width="800">
     <Grid>
-        
+        <Label Margin="10,10,0,0">Size:</Label>
+        <ComboBox HorizontalAlignment="Left"
+                  ItemsSource="{Binding Sizes, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Size, UpdateSourceTrigger=PropertyChanged}"
+                  Margin="50,10,0,0"
+                  VerticalAlignment="Top"
+                  Width="120"
+                  IsEnabled="{Binding Ordered}"/>
+        <CheckBox IsChecked="{Binding Salami}"
+                  Margin="10,40,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,35,0,0">Salami</Label>
+        <CheckBox IsChecked="{Binding Ham}"
+                  Margin="10,70,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,65,0,0">Ham</Label>
+        <CheckBox IsChecked="{Binding Pepperoni}"
+                  Margin="10,100,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,95,0,0">Pepperoni</Label>
+        <CheckBox IsChecked="{Binding Ketchup}"
+                  Margin="10,130,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,125,0,0">Ketchup</Label>
+        <CheckBox IsChecked="{Binding Mayo}"
+                  Margin="10,160,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,155,0,0">Mayo</Label>
+        <CheckBox IsChecked="{Binding Paprika}"
+                  Margin="10,190,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,185,0,0">Paprika</Label>
+        <CheckBox IsChecked="{Binding Olives}"
+                  Margin="10,220,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,215,0,0">Olives</Label>
+        <CheckBox IsChecked="{Binding Origano}"
+                  Margin="10,250,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,245,0,0">Origano</Label>
+        <CheckBox IsChecked="{Binding Sesame}"
+                  Margin="10,280,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,275,0,0">Sesame</Label>
+        <CheckBox IsChecked="{Binding Cheese}"
+                  Margin="10,310,0,0"
+                  IsEnabled="{Binding Ordered}"/>
+        <Label Margin="22,305,0,0">Cheese</Label>
+        <Button Content="Calculate amount"
+                Command="{Binding CalculateAmount, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="10,340,0,0"
+                VerticalAlignment="Top"
+                Width="120"
+                RenderTransformOrigin="0.32,2.25"
+                IsEnabled="{Binding Ordered}" />
+        <Label Content="Price:"
+               HorizontalAlignment="Left"
+               Margin="10,360,0,0"
+               VerticalAlignment="Top">
+        </Label>
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="50,365,0,0"
+                   TextWrapping="Wrap"
+                   Text="{Binding Path=Amount, Mode=OneWay}"
+                   VerticalAlignment="Top" />
     </Grid>
 </Window>
